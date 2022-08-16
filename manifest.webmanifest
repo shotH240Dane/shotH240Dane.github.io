@@ -1,5 +1,5 @@
 {
-  "background_color": "purple",
+  "background_color": "lightcyan",
   "description": "Shows random fox pictures. Hey, at least it isn't cats.",
   "display": "fullscreen",
   "icons": [
@@ -9,7 +9,7 @@
       "type": "image/png"
     }
   ],
-  "name": "Awesome fox pictures",
-  "short_name": "Foxes",
+  "name": "Pwa Test Demo",
+  "short_name": "PwaTD",
   "start_url": "/index.html"
 }
