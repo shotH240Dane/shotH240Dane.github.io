@@ -11,6 +11,6 @@
     }
   ],
   "name": "Pwa Test Demo",
-  "short_name": "PwaTD",
+  "short_name": "PwaTDB",
   "start_url": "/index.html"
 }
