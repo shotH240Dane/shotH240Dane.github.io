@@ -1,10 +1,11 @@
 {
   "background_color": "lightcyan",
+  "theme_color": "",
   "description": "Shows random fox pictures. Hey, at least it isn't cats.",
   "display": "fullscreen",
   "icons": [
     {
-      "src": "icon/fox-icon.png",
+      "src": "icon/btb-icon.png",
       "sizes": "192x192",
       "type": "image/png"
     }
