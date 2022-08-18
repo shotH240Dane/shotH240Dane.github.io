@@ -1,0 +1,17 @@
+{
+  "name": "dane-next-pwa",
+  "short_name": "Dnp",
+  "icons": [
+    {
+      "src": "/icons/fox-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#FFFFFF",
+  "background_color": "lightblue",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}
