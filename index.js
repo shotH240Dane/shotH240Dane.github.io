@@ -1,6 +1,16 @@
+
+
 const images = ['fox1', 'fox2', 'fox3', 'fox4'];
 const imgElem = document.querySelector('img');
 
+// webwork  主线程建立连接，子线程消息返回后通过postMessage来获取子线程的数据
+// console.log('start')
+// const worker = new Worker('work.js')
+// worker.addEventListener('message', (e) => {
+//   console.log('e==', e.data)
+// })
+// console.log('end')
+// ========================================
 function randomValueFromArray(array) {
   const randomNo = Math.floor(Math.random() * array.length);
   return array[randomNo];
@@ -12,15 +22,17 @@ setInterval(() => {
 }, 2000);
 
 // Register service worker to control making site work offline
-console.log('11111111111111111111111111111111', navigator)
-if ('serviceWorker' in navigator) {
-  // .register('/pwa-examples/a2hs/sw.js')
-  navigator.serviceWorker
-    .register('/sw.js')
-    .then((e) => { console.log('Service Worker Registered', e); }).catch(e => {
-      console.log('catch===', e)
-    });
-}
+window.addEventListener('load', () => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('/sw-test-caches.js')
+      .then((e) => { console.log('Service Worker Registered', e); }).catch(e => {
+        console.log('catch===', e)
+      });
+  }
+})
+
+
 
 // Code to handle install prompt on desktop
 

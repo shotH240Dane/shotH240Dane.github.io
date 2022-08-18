@@ -1,5 +1,6 @@
 self.addEventListener('install', (e) => {
   console.log('install==', e)
+  // cache 
   e.waitUntil(
     caches.open('fox-store').then((cache) => cache.addAll([
       // '/pwa-examples/a2hs/',
@@ -22,10 +23,10 @@ self.addEventListener('install', (e) => {
 });
 
 self.addEventListener('fetch', (e) => {
-  console.log(e.request.url, '==========', caches);
+  // console.log(e.request.url, '==========', caches);
   e.respondWith(
     caches.match(e.request).then((response) => {
-      console.log('resp', response)
+      // console.log('resp', response)
       return response || fetch(e.request)
     }),
   );
