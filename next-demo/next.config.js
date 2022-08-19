@@ -14,7 +14,8 @@ const nextConfig = {
   distDir: 'build',
   // reactStrictMode: true,
   pwa: {
-    dest: 'public'
+    dest: 'public',
+    swSrc: 'service-worker.js',
   },
   webpack: (config, options) => {
     return config
