@@ -4,6 +4,14 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
+  async function mClick() {
+    console.log('通知==', Notification)
+    const res = await Notification.requestPermission();
+    console.log('res==', res)
+    if (res === 'granted') {
+      new Notification('tips', { body: '这是一个通知测试'})
+    }
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -23,6 +31,8 @@ const Home: NextPage = () => {
           Get started by editing{' '}
           <code className={styles.code}>pages/index.tsx</code>
         </p>
+
+        <button onClick={mClick}>open Notification</button>
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
