@@ -1,17 +1,33 @@
 import type { NextPage } from 'next'
+import { useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
+  const [tips, setTips] = useState('Success')
   async function mClick() {
+    if (typeof Notification === 'undefined') {
+      setTips('浏览器不支持Notification Api')
+      return
+    }
     console.log('通知==', Notification)
     const res = await Notification.requestPermission();
     console.log('res==', res)
     if (res === 'granted') {
-      new Notification('tips', { body: '这是一个通知测试'})
+      new Notification('tips', { body: '这是一个通知测试' })
     }
   }
+
+  async function openServiceReg() {
+    const osr:any = await navigator.serviceWorker.getRegistration()
+    console.log('osr==', osr)
+    // osr.showNotification(title, options)
+    osr.showNotification('测试Registration', {
+      body: '这是一段测试用的Registration'
+    })
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -33,6 +49,8 @@ const Home: NextPage = () => {
         </p>
 
         <button onClick={mClick}>open Notification</button>
+        <button onClick={openServiceReg}>Open ServiceWorkerReg</button>
+        <div>{ tips }</div>
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
