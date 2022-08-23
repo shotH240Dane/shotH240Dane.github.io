@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import { useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
+import Script from 'next/script'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
@@ -37,6 +38,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
+      <Script type="text/javascript" src='https://www.googletagmanager.com/gtag/js?id=G-JWMZ65DC4D'/>
+      <Script type="text/javascript" src='/js/dataHub.js'></Script>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
