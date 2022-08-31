@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Script from 'next/script'
 import styles from '../styles/Home.module.css'
 
-const Home: NextPage = () => {
+const Home: NextPage = (props:any) => {
   const [tips, setTips] = useState('Success')
   async function mClick() {
     if (typeof Notification === 'undefined') {
@@ -19,6 +19,10 @@ const Home: NextPage = () => {
       new Notification('tips', { body: '这是一个通知测试' })
     }
   }
+
+  useEffect(() => {
+    console.log('test', props)
+  }, [props])
 
   async function openServiceReg() {
     const osr:any = await navigator.serviceWorker.getRegistration()
@@ -38,8 +42,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      <Script type="text/javascript" src='https://www.googletagmanager.com/gtag/js?id=G-JWMZ65DC4D'/>
-      <Script type="text/javascript" src='/js/dataHub.js'></Script>
+      {/* <Script type="text/javascript" src='https://www.googletagmanager.com/gtag/js?id=G-JWMZ65DC4D'/>
+      <Script type="text/javascript" src='/js/dataHub.js'></Script> */}
 
       <main className={styles.main}>
         <h1 className={styles.title}>
@@ -96,6 +100,8 @@ const Home: NextPage = () => {
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
+          {/* <Image src="https://img2.baidu.com/it/u=2620458726,1683254021&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=313" alt='' width={120} height={120} /> */}
+          <Image src="https://resourceservice-uat.musegaming.co/public/1661245336346.png" alt='' width={120} height={120} />
         </a>
       </footer>
     </div>

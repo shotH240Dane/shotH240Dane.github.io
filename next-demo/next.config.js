@@ -5,6 +5,9 @@ console.log('1111111111111111111===', process.env)
 const nextConfig = {
   distDir: 'build',
   // reactStrictMode: true,
+  images: {
+    domains: ['resourceservice-uat.musegaming.co'],
+  },
   env: {
     // NEXT_PUBLIC_NODE_ENV: process.env.NEXT_PUBLIC_NODE_ENV
   },
